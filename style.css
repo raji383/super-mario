@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#game {
+
+  width: 80vw;
+  height: 500px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #000;
+}
+
+#background {
+  width: 7038px;
+  height: 1000px;
+  background-image: url('bg-1-1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
+#gameover {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  font-family: sans-serif;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+#win {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  font-family: sans-serif;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+#player {
+  width: 50px;
+  height: 70px;
+  left: 20px;
+  overflow: hidden;
+  position: absolute;
+
+}
+
+#enmy {
+  width: 38px;
+  height: 46px;
+  left: 1000px;
+  top: 390px;
+
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+#enmy-img {
+  width: 487px;
+  height: 580px;
+  background-image: url('enemies.png');
+
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: -170%;
+}
+
+#player-img {
+  width: 487px;
+  height: 780px;
+  background-image: url('mario.png');
+  background-size: cover;
+  position: absolute;
+  top: -650%;
+  left: 0;
+}
+
+#coin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: gold;
+  border-radius: 50%;
+  top: 395px;
+  left: 1000px;
+  z-index: 3;
+}
+
+#score {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.enemy {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.enemy-img {
+    width: 487px;
+    height: 580px;
+    background-image: url('enemies.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: -170%;
+}
