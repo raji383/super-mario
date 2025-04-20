@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Super Mario Scroll</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css"/>
@@ -22,7 +22,17 @@
     </div>
     
     <div id="coin"></div>
-
+    
+    <!-- Add mobile controls -->
+    <div id="mobile-controls">
+      <div class="control-group">
+        <div class="control-btn" id="btn-left">←</div>
+        <div class="control-btn" id="btn-right">→</div>
+      </div>
+      <div class="control-group">
+        <div class="control-btn" id="btn-jump">↑</div>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>

@@ -5,15 +5,13 @@ body {
 }
 
 #game {
-
-  width: 80vw;
-  height: 500px;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid #000;
+  top: 0;
+  left: 0;
+  border: none;
 }
 
 #background {
@@ -138,4 +136,42 @@ body {
     position: absolute;
     top: 0;
     left: -170%;
+}
+
+/* Mobile controls */
+#mobile-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border: 2px solid white;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.control-group {
+  display: flex;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  #mobile-controls {
+    display: none;
+  }
 }

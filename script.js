@@ -230,24 +230,65 @@ class Input {
     constructor(game) {
         this.game = game;
         this.keys = [];
+        
+        // Keyboard controls
         window.addEventListener('keydown', e => {
             if (['ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'p'].includes(e.key) && !this.keys.includes(e.key)) {
                 this.keys.push(e.key);
             }
         });
+        
         window.addEventListener('keyup', e => {
             if (['ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'p'].includes(e.key)) {
                 this.keys.splice(this.keys.indexOf(e.key), 1);
                 if (this.game.player.moveright) {
                     this.game.player.marioim.style.left = '0'
-
                 } else {
                     this.game.player.marioim.style.left = '-850%';
                 }
             }
         });
+
+        // Touch controls
+        this.setupTouchControls();
+    }
+
+    setupTouchControls() {
+        const btnLeft = document.getElementById('btn-left');
+        const btnRight = document.getElementById('btn-right');
+        const btnJump = document.getElementById('btn-jump');
+
+        // Helper function for touch events
+        const handleTouch = (btn, key, event) => {
+            event.preventDefault();
+            if (event.type === 'touchstart' && !this.keys.includes(key)) {
+                this.keys.push(key);
+                btn.style.opacity = '0.7';
+            } else if (event.type === 'touchend') {
+                this.keys = this.keys.filter(k => k !== key);
+                btn.style.opacity = '1';
+                if (this.game.player.moveright) {
+                    this.game.player.marioim.style.left = '0'
+                } else {
+                    this.game.player.marioim.style.left = '-850%';
+                }
+            }
+        };
+
+        // Left button
+        btnLeft.addEventListener('touchstart', e => handleTouch(btnLeft, 'ArrowLeft', e));
+        btnLeft.addEventListener('touchend', e => handleTouch(btnLeft, 'ArrowLeft', e));
+
+        // Right button
+        btnRight.addEventListener('touchstart', e => handleTouch(btnRight, 'ArrowRight', e));
+        btnRight.addEventListener('touchend', e => handleTouch(btnRight, 'ArrowRight', e));
+
+        // Jump button
+        btnJump.addEventListener('touchstart', e => handleTouch(btnJump, ' ', e));
+        btnJump.addEventListener('touchend', e => handleTouch(btnJump, ' ', e));
     }
 }
+
 class Map {
     constructor(game, background, player) {
         this.game = game;
